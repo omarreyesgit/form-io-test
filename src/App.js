@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Form, } from '@formio/react';
+const urlForm = 'https://kkttacetqlnrnmu.form.io/crearexpedientes'
+const urlResource = 'https://kkttacetqlnrnmu.form.io/expedientes'
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>Crear Expediente</h1>
+      <Form src={urlResource} onSubmitDone={
+        //reset form
+        (submission) => {
+          console.log(submission);
+          //alert("Expediente creado con exito");
+          window.location.reload();
+        }
+      } />
+
+
+
+
     </div>
   );
 }
